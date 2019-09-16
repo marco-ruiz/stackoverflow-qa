@@ -12,7 +12,3 @@ println enhanced.enable_api_security
 println enhanced.owner
 println enhanced.time
 
-
-def COMPONENTS_LIST= "one two three"
-Map store = [value: COMPONENTS_LIST]
-println store
