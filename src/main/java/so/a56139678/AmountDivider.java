@@ -1,4 +1,5 @@
 package so.a56139678;
+
 public class AmountDivider {
 	private int totalMembers, luckies, unluckies;
 	private double totalAmount, amountPerLucky, amountPerUnlucky;
