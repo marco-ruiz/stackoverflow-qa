@@ -1,10 +1,7 @@
 package so.a59097202;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class EnumSelector {
@@ -21,25 +18,31 @@ public class EnumSelector {
 	}
 
 	public static enum EmotionalState {
-		SAD("Sad", 1, 2, 3, 4, 5, 6), 
+		SAD("Sad", 1, 6), 
 		OK("Ok", 7, 8), 
-		HAPPY("Happy", 9, 10),
+		HAPPY("Happy", 9, 15),
 		DEFAULT_STATE("Default");
 		
 		private String name;
-		private List<Integer> levels;
+		private int startLevel;
+		private int endLevel;
 		
-		EmotionalState(String name, int... levels) {
-			this.name = name;
-			this.levels = Arrays.stream(levels).mapToObj(Integer::new).collect(Collectors.toList());
+		EmotionalState(String name) {
+			this(name, 0, -1);
 		}
 		
+		EmotionalState(String name, int startLevel, int endLevel) {
+			this.name = name;
+			this.startLevel = startLevel;
+			this.endLevel = endLevel;
+		}
+
 		public String getName() {
 			return name;
 		}
 
 		public boolean containsLevel(int level) {
-			return levels.stream().filter(l -> l.intValue() == level).findAny().isPresent();
+			return startLevel <= level && level <= endLevel;
 		}
 		
 		public static EmotionalState findFor(int level) {
