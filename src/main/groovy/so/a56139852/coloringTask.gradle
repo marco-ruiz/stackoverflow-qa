@@ -1,9 +1,0 @@
-task myTask {
-	def styler = 'black red green yellow blue magenta cyan white'
-		.split().toList().withIndex(30)
-		.collectEntries { key, val -> [(key) : { "\033[${val}m${it}\033[0m" }] }
-
-	doLast {
-		println "Message: ${styler['red']('Hello')} ${styler['blue']('World')}"
-	}
-}
