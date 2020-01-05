@@ -9,4 +9,5 @@
 rootProject.name = 'stackoverflow-qa'
 include 'so-common'
 include 'so-59099369'
+include 'so-59588595'
 
