@@ -51,8 +51,7 @@ public class MonoSwitchIfEmptyTest {
 
 		public LoggedRuntimeException() {
 			System.out.println("Creating exception...");
-			String stackTrace = getStackTraceStr();
-			System.out.println("Stack trace: \n" + stackTrace);
+			System.out.println("Stack trace: \n" + getStackTraceStr());
 		}
 
 		private String getStackTraceStr() {
